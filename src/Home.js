@@ -1,11 +1,10 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import BlogList from './BlogList';
 
 const Home = () => {
 
     // React state set-up for welcome message
     const [name, setName] = useState("visitor");
-    const [age, setAge] = useState(25);
 
     // React state set-up for blog data:
     const [blogs, setBlogs] = useState([
@@ -14,28 +13,28 @@ const Home = () => {
         {title: 'Web Dev Top Tips', body: 'Since we lost so many developers to caviar poisoning last Friday, I would like to step in with some quick dev tips to help you recent hires settle into your new roles.', author: 'mario', id: 3}
     ]);
 
-    // Changes the React states to update welcome message
-    const handleClick = (e) => {
-        setName("button clicker!");
-        setAge(34);
+    const handleDelete = (id) => {
+        const newBlogs = blogs.filter(blog => blog.id !== id)
+        setBlogs(newBlogs);
     };
 
-        /* Below: (r) is the received value of (e) from the onClick anonymous function
-    const handleClickAgain = (name, r) => {
-        console.log("Hello " + name, r.target);
-    }; */
+    // runs every render of this component (initial render, plus when React State changes - every subsequent render)
+    useEffect(() => {
+        console.log("use effect ran");
+        console.log(name);
+    }, [name]);
+
     return (
         <div className="home">
             <h2>Homepage</h2>
             <br />
-            <p>Hello, { name }! You are { age } years old.</p>
+            <p>Hello, { name }!</p>
             <br />
-            <button onClick={handleClick}>Click me</button>
-            {/* Below: (e) is the click event, and can be passed like so back into the handeClickAgain() func for use within 
-            <button onClick={(e) => {handleClickAgain('pierce', e)}}>Click me again</button> */}
+            <button onClick={() => setName('button clicker')}>Click me</button>
             <hr />
-           <BlogList blogs={blogs} title="All Blogs"/>
-           <BlogList blogs={blogs.filter((blog) => blog.author === 'mario')} title="Mario's Blogs"/>
+           <BlogList blogs={blogs} title="All Blogs" handleDelete={handleDelete} />
+           {/* Blogs filtered by author via id:
+           <BlogList blogs={blogs.filter((blog) => blog.author === 'mario')} title="Mario's Blogs"/> */}
         </div>
      );
 }
