@@ -14,6 +14,8 @@ const Home = () => {
         const newBlogs = blogs.filter(blog => blog.id !== id)
         setBlogs(newBlogs);
     };
+    // React state set-up for error catching
+    const [error, setError] = useState(null);
 
     // runs every render of this component (initial render, plus when React State changes - every subsequent render)
     useEffect(() => {
@@ -21,12 +23,23 @@ const Home = () => {
         fetch('http://localhost:8000/blogs')
             // take the promise and converts to json
             .then(res => {
+                // throw an error if the promise's status code is NOT "ok"
+                if(!res.ok) {
+                    throw Error('Could not fetch data from resource');
+                }
+                // then complete conversion of json data
                 return res.json(); 
             })
             // take result of previous return and use setBlogs() to render the now-ready json data
             .then(data => {
-                console.log(data);
                 setBlogs(data);
+                // now that data is loaded and rendered, change state of loading status
+                setIsLoading(false);
+                setError(null);
+            })
+            .catch(err => {
+                // catch any errors
+                setError(err.message);
                 setIsLoading(false);
             })
     }, []);
@@ -39,6 +52,7 @@ const Home = () => {
             <br />
             <button onClick={() => setName('button clicker')}>Click me</button>
             <hr />
+            { error && <div>{ error }</div>}
             {isLoading && <div>Loading...</div> }
             {blogs && <BlogList blogs={blogs} title="All Blogs" handleDelete={handleDelete} />}
         </div>
