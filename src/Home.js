@@ -46,15 +46,22 @@ const Home = () => {
 
     return (
         <div className="home">
-            <h2>Homepage</h2>
+            <h1>Homepage</h1>
             <br />
-            <p>Hello, { name }!</p>
-            <br />
-            <button onClick={() => setName('button clicker')}>Click me</button>
+            <div>
+                <img src={require("./images/logo192.png")} alt={"One option"}/>
+                {/* <img src={Picture} alt="Another option" /> */}
+            </div>
+            <div className="text-center">
+                <p>Hello, { name }!</p>
+                <br />
+                <button onClick={() => setName('button clicker')}>Click me</button>
+            </div>
             <hr />
             { error && <div>{ error }</div>}
             {isLoading && <div>Loading...</div> }
             {blogs && <BlogList blogs={blogs} title="All Blogs" handleDelete={handleDelete} />}
+            <br />
         </div>
      );
 }
