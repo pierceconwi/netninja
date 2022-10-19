@@ -1,6 +1,10 @@
 const BlogList = ({blogs, title, handleDelete}) => {
-    // const blogs = props.blogs;
-    // const title = props.title;
+
+/*     // "Delete Post" function
+    const handleDelete = (id) => {
+        const newData = blogs.filter(data => data.id !== id)
+        setBlogs(newData);
+    }; */
 
     return ( 
         <div className="blog-list ml-2">
