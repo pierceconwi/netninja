@@ -1,14 +1,12 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import BlogList from './BlogList';
 import useFetch from './useFetch';
 
 const Home = () => {
-    const { data: blogs, isLoading, error } = useFetch('http://localhost:8000/blogs')
+    const { data: blogs, isLoading, error } = useFetch('http://localhost:8000/blogs');
 
     // React state set-up for welcome message
     const [name, setName] = useState("visitor");
-
-
 
     return (
         <div className="home">
@@ -30,6 +28,6 @@ const Home = () => {
             <br />
         </div>
      );
-}
+};
  
 export default Home;

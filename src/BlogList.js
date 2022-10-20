@@ -1,10 +1,4 @@
-const BlogList = ({blogs, title, handleDelete}) => {
-
-/*     // "Delete Post" function
-    const handleDelete = (id) => {
-        const newData = blogs.filter(data => data.id !== id)
-        setBlogs(newData);
-    }; */
+const BlogList = ({ blogs, title }) => {
 
     return ( 
         <div className="blog-list ml-2">
@@ -15,11 +9,10 @@ const BlogList = ({blogs, title, handleDelete}) => {
                     <p className="lowercase">Written by: { blog.author }</p>
                     <br />
                     <p>{ blog.body }</p>
-                    <button className="mt-1 mb-6 bg-cyan-300 rounded p-1" onClick={() => handleDelete(blog.id)}>Delete Post</button>
                 </div>
             ))}
         </div>
      );
-}
+};
 
 export default BlogList;
