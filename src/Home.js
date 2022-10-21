@@ -10,12 +10,12 @@ const Home = () => {
 
     return (
         <div className="home">
-            <h1>Homepage</h1>
+            <h1 class="text-center text-2xl font-bold">Welcome</h1>
             <br />
-            <div>
+            {/* <div>
                 <img src={require("./images/logo192.png")} alt={"One option"}/>
-                {/* <img src={Picture} alt="Another option" /> */}
-            </div>
+                <img src={Picture} alt="Another option" />
+            </div> */}
             <div className="text-center">
                 <p>Hello, { name }!</p>
                 <br />
