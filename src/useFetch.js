@@ -8,10 +8,10 @@ const useFetch = (url) => {
     // React state set-up for error catching
     const [error, setError] = useState(null);
 
-
+// AbortController error starts here
     useEffect(() => {
         // AbortController() prevents an error by stopping the below fetch request when Home is unmounted
-        const abortCont = new AbortController(); 
+        const abortCont = new window.AbortController(); 
         // grab json data via endpoint. fetch() returns a promise, so okay to use .then
         fetch(url, { signal: abortCont.signal })
             // take the promise and converts to json
@@ -42,7 +42,8 @@ const useFetch = (url) => {
             })
             return () => abortCont.abort();
     }, [url]);
+
     return { data, isLoading, error }
-}
+};
  
 export default useFetch;
