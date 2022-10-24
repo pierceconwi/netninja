@@ -13,7 +13,7 @@ function App() {
         <div className="content">
           {/* switch ensures only one Route shows at a time */}
           <Switch>
-            <Route path="/">
+            <Route exact path="/">
               <Home />
             </Route>
             <Route path="/create">
@@ -28,6 +28,6 @@ function App() {
       </div>
     </Router>
   );
-};
+}
 
 export default App;

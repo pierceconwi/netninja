@@ -11,12 +11,8 @@ const Home = () => {
 
     return (
         <div className="home">
-            <h1 class="text-center text-2xl font-bold">Welcome</h1>
+            <h1 className="text-center text-2xl font-bold">Welcome</h1>
             <br />
-            {/* <div>
-                <img src={require("./images/logo192.png")} alt={"One option"}/>
-                <img src={Picture} alt="Another option" />
-            </div> */}
             <div className="text-center">
                 <p>Hello, { name }!</p>
                 <br />
@@ -29,6 +25,6 @@ const Home = () => {
             <br />
         </div>
      );
-};
+}
  
 export default Home;
