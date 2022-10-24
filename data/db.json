@@ -1,22 +1,22 @@
 {
-    "blogs": [
-        {
-            "title": "My New Website",
-            "body": "Our new blog is finally live! Please look forward to more updates!",
-            "author": "mario",
-            "id": 1
-        },
-        {
-            "title": "Welcome Party",
-            "body": "To celebrate the launch of our new blog, we will be chugging caviar in the break room this Friday at 6 PM.",
-            "author": "yoshi",
-            "id": 2
-        },
-        {
-            "title": "Web Dev Top Tips",
-            "body": "Since we lost so many developers to caviar poisoning last Friday, I would like to step in with some quick dev tips to help you recent hires settle into your new roles.",
-            "author": "mario",
-            "id": 3
-        }
-    ]
+  "blogs": [
+    {
+      "title": "My New Website",
+      "body": "Our new blog is finally live! Please look forward to more updates!",
+      "author": "mario",
+      "id": 1
+    },
+    {
+      "title": "Welcome Party",
+      "body": "To celebrate the launch of our new blog, we will be chugging caviar in the break room this Friday at 6 PM.",
+      "author": "yoshi",
+      "id": 2
+    },
+    {
+      "title": "Web Dev Top Tips",
+      "body": "Since we lost so many developers to caviar poisoning last Friday, I would like to step in with some quick dev tips to help you recent hires settle into your new roles.",
+      "author": "mario",
+      "id": 3
+    }
+  ]
 }
